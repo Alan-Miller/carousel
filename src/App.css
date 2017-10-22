@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 10vh;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-body {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: RGBA(130, 130, 103, 1.00);
+}
+
+.img-container {
+  height: 400px;
+  width: 700px;
+  overflow: hidden; /* hide overflow or all photos will show */
+  position: relative; /* set to relative so its children, the images, can be absolute */
+}
+
+.App .image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  transition: left .7s; /* transition lets photos slide over smoothly */
+}
+
+.button {
+  cursor: pointer;
+  color: RGBA(235, 203, 175, 1.00);
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 3px;
+  border: medium solid RGBA(180, 39, 12, 1.00);
+  background-color: RGBA(180, 39, 12, 1.00);
+  transition: .4s;
+}
+
+.button:hover {
+  color: RGBA(180, 39, 12, 1.00);
+  background-color: RGBA(235, 203, 175, 1.00);
+}
