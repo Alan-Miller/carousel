@@ -43,7 +43,7 @@
   width: 100%;
   position: absolute;
   background-size: cover;
-  transition: left .4s; /* transition lets photos slide over smoothly */
+  transition: left .7s; /* transition lets photos slide over smoothly */
 }
 
 .button {

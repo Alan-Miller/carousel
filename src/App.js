@@ -11,7 +11,7 @@ import fall8 from './imgs/fall8.jpg';
 import fall9 from './imgs/fall9.jpg';
 
 let auto; // variable for storing setInterval ID
-const timer = 4000; // timer for interval
+const timer = 3000; // timer for interval
 
 class App extends Component {
 
@@ -35,8 +35,11 @@ class App extends Component {
     auto = setInterval(_ => { this.goForward() }, timer); // set new interval
   }
 
+  componentWillUnmount() {
+    clearInterval(auto); // clear interval if exiting component
+  }
+
   goBack() {
-    this.resetInterval(); // reset interval so timer starts over
     let { counter, fallImages, direction } = this.state;
     if (counter === 0) counter = fallImages.length - 1;
     else counter--;
@@ -44,7 +47,6 @@ class App extends Component {
   }
 
   goForward() {
-    this.resetInterval(); // reset interval so timer starts over
     let { counter, fallImages, direction } = this.state;
     if (counter >= fallImages.length - 1) counter = 0;
     else counter++;
@@ -72,7 +74,6 @@ class App extends Component {
   };
 
   render() {
-
     return (
       <div className="App">
         <header className="App-header">
@@ -82,7 +83,10 @@ class App extends Component {
 
         <div className="App-body">
 
-          <div className="button" onClick={this.goBack}>Back</div>
+          <div 
+            className="button" 
+            onClick={_ => {this.goBack(); this.resetInterval(); /*click resets interval*/}}
+            >Back</div>
           
           <div className="img-container">
             {this.state.fallImages.map((img, i) => {
@@ -90,7 +94,10 @@ class App extends Component {
             })}
           </div>
 
-          <div className="button" onClick={this.goForward}>Forward</div>
+          <div 
+            className="button" 
+            onClick={_ => {this.goForward(); this.resetInterval(); /*click resets interval*/}}
+            >Forward</div>
 
         </div>
       </div>
